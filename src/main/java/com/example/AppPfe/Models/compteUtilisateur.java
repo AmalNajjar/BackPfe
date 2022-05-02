@@ -1,11 +1,15 @@
 package com.example.AppPfe.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -13,7 +17,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @ToString
 @Entity
-public class compteUtilisateur {
+public class compteUtilisateur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -23,7 +27,10 @@ public class compteUtilisateur {
     private String  password;
     @Column(unique =true)
     private String email;
-    private String direction;
+
+    //@OneToMany(mappedBy = "libelleDirection")
+    //@JsonIgnore
+    //private List<TypeDirection> typeDirections=new ArrayList<>();
 }
 
 

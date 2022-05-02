@@ -1,5 +1,6 @@
 package com.example.AppPfe.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -7,6 +8,8 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -30,9 +33,16 @@ public class suivi_doc_1ereAge {
     @ManyToOne
     @JoinColumn(name ="designation_Nomenclature",referencedColumnName = "designation_Nomenclature")
     private Nomenclature designation_Nomenclature;
+
     @ManyToOne
     @JoinColumn(name ="libelleDirection",referencedColumnName = "libelleDirection")
     private Direction_Regionale libelleDirection;
+
+    //@OneToMany(mappedBy ="libelleDirection")
+    //@JsonIgnore
+    //private List<suivi_doc_2emeAge> suivi_document=new ArrayList<>();
+
+
    //  @JoinColumn(name = "libelleDirection",referencedColumnName = " libelleDirection")}
 
 }

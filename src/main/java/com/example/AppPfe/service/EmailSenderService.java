@@ -28,7 +28,17 @@ public class EmailSenderService {
         mailSender.send(message);
         System.out.println("Mail sent successfully...");
     }
-
+    public void sendEmailEcart(String toEmail,
+                          String subject,
+                          String body){
+        SimpleMailMessage message=new SimpleMailMessage();
+        message.setFrom("najjaramal220@gmail.com");
+        message.setTo(toEmail);
+        message.setText("Ecart egale 0");
+        message.setSubject(subject);
+        mailSender.send(message);
+        System.out.println("Mail sent successfully...");
+    }
     public void sendEmailWithAttachment(String toEmail,
                                         String body,
                                         String subject,
